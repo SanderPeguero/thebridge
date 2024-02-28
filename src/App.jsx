@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import SignIn from './Layout/SignIn/SingIn'
+import LogIn from './Layout/LogIn/LogIn'
 
 function App() {
 
   return (
     <>
-      <SignIn></SignIn>
+      <LogIn/>
     </>
   )
 }
