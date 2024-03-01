@@ -22,9 +22,6 @@ export function ProviderContext({children}) {
         CardList(setCardlist)
         console.log("Datos de card")
     }, [])
-
-    // console.log(Cardlist)
-    
     
     return (
     <Context.Provider
