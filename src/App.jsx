@@ -4,14 +4,13 @@ import SigIn from "./Layout/SignIn/SingIn";
 import LogIn from "./Layout/LogIn/LogIn";
 import Navbar from "./Layout/NavBar/NavBar";
 import Home from "./Layout/Home/Home";
-function App() {
-  // isAuth setIsAuth ()
-  const [isAuth, setIsAuth] = useState(localStorage.getItem("isAuth"));
-  console.log(isAuth);
 
+function App() {
+
+  const userisAuth = localStorage.getItem("Token")
   return (
     <>
-      {isAuth === null ? (
+      {userisAuth === null ? (
         <Routes>
           <Route path="/" element={<LogIn />} />
           <Route path="/SigIn" element={<SigIn />} />

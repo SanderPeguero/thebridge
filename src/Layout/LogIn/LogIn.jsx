@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
-
 import { Link } from "react-router-dom"
+import { useContextbridge } from '../../context'
 const LogIn = () => {
+    const {handleLogin} = useContextbridge()
     const [user, setUser] = useState(
         {
             email: '',
@@ -17,8 +18,9 @@ const LogIn = () => {
         else{
             console.log("Datos: ")
             console.log(user)
-            localStorage.setItem('isAuth', true)
-            window.location.reload()
+            handleLogin(user)
+            // localStorage.setItem('isAuth', true)
+            // window.location.reload()
         }
     }
 
