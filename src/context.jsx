@@ -1,36 +1,36 @@
-import { createContext, useContext, useEffect, useState } from "react"
-import { LogIn, Logout } from "./functions/Auth/auth"
-import { onAuthStateChanged } from "firebase/auth"
-import { auth } from "./firebase/firebase"
-const Context = createContext()
+import React, {useContext, createContext, useEffect, useState} from "react";
+import { confiCards, CardList } from "./Functions/Configuration/Funcions";
 
-export const useContextbridge = () => {
-    const context = useContext(Context)
-    if (!context) throw new Error('There is no Auth provider')
-    return context
+const Context = createContext() 
+
+export const useContextBridge = () => {
+ const context = useContext(Context)
+ if(!context) throw new Error("There is not context provide")
+ return context
 }
 
-export function ProviderContext({ children }) {
-    const [isLoggedIn, setLoggedIn] = useState(false);
-    const [User, setUser] = useState(null)
+//Pasar variable para el contexto
+export function ProviderContext({children}) {
+    const [Cardlist, setCardlist] = useState([])
 
-    const handleLogin = (user) => {
-      LogIn(user)
+    const HandleSaveCards = (Card) => {
+        console.log("Context")
+        confiCards(Card)
     }
-
-    const handleLogout = () => {
-        Logout(setUser)
-    }
-
-    return(
-        <Context.Provider value={
-            {
-                handleLogin,
-                User,
-                handleLogout
-            }
-        }>
-            {children}
-        </Context.Provider>
+    
+    useEffect(() => {
+        CardList(setCardlist)
+        console.log("Datos de card")
+    }, [])
+    
+    return (
+    <Context.Provider
+        value={{
+            HandleSaveCards,
+            Cardlist
+        }}
+    >
+        {children}
+    </Context.Provider>
     )
 }
