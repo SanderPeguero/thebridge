@@ -55,7 +55,6 @@ const Datos = [
     text: "Lorem, ipsum dolor sit amet",
     image: "https://picsum.photos/400/400",
   }
-
 ];
 
 const Home = () => {
@@ -80,7 +79,6 @@ const Home = () => {
     console.log(card)
     //  HandleSaveCards()
   }
-
   return (
     <div className="relative flex min-h-screen flex-col justify-center overflow-hidden bg-gray- py-6 sm:py-12">
       <div className="mx-auto max-w-screen-xl px-4 w-full">
